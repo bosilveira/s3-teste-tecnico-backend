@@ -11,5 +11,3 @@ class Entry(models.Model):
     owner = models.CharField(max_length=14)
     outlet = models.CharField(max_length=19)
 
-    def __str__(self):
-        return f"{self.id} {self.type} {self.date}"

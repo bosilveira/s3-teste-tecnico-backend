@@ -22,6 +22,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('upload/', FileUploadView.as_view(), name='UploadView'),
-    path('list/<int:owner_cpf>/', EntryList.as_view(), name='EntryList'),
+    path('report/<int:owner_cpf>/', EntryList.as_view(), name='EntryList'),
     path('api-auth/', include('rest_framework.urls'))
 ]
