@@ -13,10 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from parser.views import EntryList, FileUploadView
+
 from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    path('upload/', FileUploadView.as_view(), name='UploadView'),
+    path('list/<int:owner_cpf>/', EntryList.as_view(), name='EntryList'),
+    path('api-auth/', include('rest_framework.urls'))
 ]
